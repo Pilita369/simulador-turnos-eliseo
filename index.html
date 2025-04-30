@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Eliseo | Tecnificación Deportiva</title>
   <link rel="stylesheet" href="./css/estilos.css" />
+  <script src="./JS/turnos.js" defer></script>
 </head>
+
 <body>
 
   <!-- HERO -->
@@ -49,38 +51,48 @@
     </div>
   </section>
 
-  <!-- TURNOS DISPONIBLES -->
+<!-- DESCRIPCIÓN DEL SIMULADOR -->
+<section class="descripcion-simulador">
+  <p><strong>Simulador de Turnos:</strong> Esta página contiene un sistema de turnos funcional desarrollado con JavaScript puro. El usuario puede ver turnos disponibles, reservar turnos e interactuar con la consola a través de mensajes, condicionales, ciclos y funciones con entrada, proceso y salida. Toda la lógica se encuentra implementada en el archivo <code>js/turnos.js</code>.</p>
+
+  <!-- BOTÓN PARA INICIAR EL SIMULADOR -->
+  <button onclick="iniciarSimulador()">Iniciar Simulador de Turnos</button>
+</section>
+
+
+<!-- TURNOS DISPONIBLES -->
 <section class="turnos-disponibles">
-    <h2>Disponibilidad de Turnos</h2>
-    
-    <div class="grid-turnos">
-      <div class="turno disponible">08:00</div>
-      <div class="turno reservado">09:00</div>
-      <div class="turno disponible">10:00</div>
-      <div class="turno disponible">11:00</div>
-      <div class="turno reservado">12:00</div>
-      <div class="turno disponible">13:00</div>
-    </div>
+  <h2>Disponibilidad de Turnos</h2>
   
-    <a href="#formulario-turno" class="boton-turno">Solicitar Turno</a>
-    <!-- FORMULARIO DE TURNO -->
+  <div class="grid-turnos">
+    <div class="turno disponible">08:00</div>
+    <div class="turno reservado">09:00</div>
+    <div class="turno disponible">10:00</div>
+    <div class="turno disponible">11:00</div>
+    <div class="turno reservado">12:00</div>
+    <div class="turno disponible">13:00</div>
+  </div>
+
+  <a href="#formulario-turno" class="boton-turno">Solicitar Turno</a>
+</section>
+
+<!-- FORMULARIO DE TURNO -->
 <section id="formulario-turno" class="form-turno">
-    <h2>Reservá tu Turno</h2>
-    <form action="/reserva" method="post">
-      <input type="text" name="nombre" placeholder="Tu nombre completo" required />
-      <input type="date" name="fecha" required />
-      <input type="time" name="hora" required />
-      <select name="actividad" required>
-        <option value="">Seleccioná una actividad</option>
-        <option value="entrenamiento">Entrenamiento</option>
-        <option value="voley">Técnica de Vóley</option>
-        <option value="funcional">Funcional</option>
-      </select>
-      <button type="submit">Confirmar Turno</button>
-    </form>
-  </section>
-  
-  </section>
+  <h2>Reservá tu Turno</h2>
+  <form action="/reserva" method="post">
+    <input type="text" name="nombre" placeholder="Tu nombre completo" required />
+    <input type="date" name="fecha" required />
+    <input type="time" name="hora" required />
+    <select name="actividad" required>
+      <option value="">Seleccioná una actividad</option>
+      <option value="entrenamiento">Entrenamiento</option>
+      <option value="voley">Técnica de Vóley</option>
+      <option value="funcional">Funcional</option>
+    </select>
+    <button type="submit">Confirmar Turno</button>
+  </form>
+</section>
+
   
 
   <!-- INSTALACIONES -->
