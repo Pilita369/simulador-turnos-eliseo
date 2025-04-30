@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eliseo | Tecnificación Deportiva</title>
+  <link rel="stylesheet" href="./css/estilos.css" />
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="contenido-hero">
+      <h1>ELISEO <span>ALTO RENDIMIENTO</span></h1>
+      <p>Entrenamiento físico y técnico orientado al desarrollo deportivo</p>
+      <a href="#" class="boton">Conocé más</a>
+    </div>
+  </section>
+
+  <!-- OBJETIVO -->
+  <section class="causa">
+    <h2>ENTRENÁ CON PROPÓSITO</h2>
+    <p>Somos un espacio de tecnificación deportiva pensado para atletas de todos los niveles. 
+    Te acompañamos a alcanzar tu máximo rendimiento físico, técnico y mental.</p>
+  </section>
+
+  <!-- DETALLES DEL PROGRAMA -->
+  <section class="detalles">
+    <div class="card">
+      <h3>INSCRIPCIÓN</h3>
+      <p>Las inscripciones abren el 1 de septiembre. <br><a href="#">www.eliseoentrena.com/inscripcion</a></p>
+    </div>
+    <div class="card">
+      <h3>EQUIPAMIENTO OFICIAL</h3>
+      <p>Incluye remera de entrenamiento, kit de bienvenida y acceso a herramientas digitales de seguimiento.</p>
+    </div>
+  </section>
+
+  <!-- ACTIVIDADES PREPARATORIAS -->
+  <section class="pre-maraton">
+    <div class="img-maraton"></div>
+    <div class="texto-maraton">
+      <h3>ENTRENAMIENTOS GUIADOS</h3>
+      <p>Sesiones en grupos reducidos para mejorar técnica y potencia.</p>
+      <h3>SEMINARIOS</h3>
+      <p>Charlas sobre nutrición, psicología deportiva y planificación.</p>
+      <h3>ENCUENTROS SOCIALES</h3>
+      <p>Conectá con otros atletas y compartí experiencias en comunidad.</p>
+    </div>
+  </section>
+
+  <!-- TURNOS DISPONIBLES -->
+<section class="turnos-disponibles">
+    <h2>Disponibilidad de Turnos</h2>
+    
+    <div class="grid-turnos">
+      <div class="turno disponible">08:00</div>
+      <div class="turno reservado">09:00</div>
+      <div class="turno disponible">10:00</div>
+      <div class="turno disponible">11:00</div>
+      <div class="turno reservado">12:00</div>
+      <div class="turno disponible">13:00</div>
+    </div>
+  
+    <a href="#formulario-turno" class="boton-turno">Solicitar Turno</a>
+    <!-- FORMULARIO DE TURNO -->
+<section id="formulario-turno" class="form-turno">
+    <h2>Reservá tu Turno</h2>
+    <form action="/reserva" method="post">
+      <input type="text" name="nombre" placeholder="Tu nombre completo" required />
+      <input type="date" name="fecha" required />
+      <input type="time" name="hora" required />
+      <select name="actividad" required>
+        <option value="">Seleccioná una actividad</option>
+        <option value="entrenamiento">Entrenamiento</option>
+        <option value="voley">Técnica de Vóley</option>
+        <option value="funcional">Funcional</option>
+      </select>
+      <button type="submit">Confirmar Turno</button>
+    </form>
+  </section>
+  
+  </section>
+  
+
+  <!-- INSTALACIONES -->
+  <section class="amenities">
+    <h2>NUESTRAS ÁREAS DE ENTRENAMIENTO</h2>
+    <div class="amenities-grid">
+      <div class="item">
+        <h4>ZONA CARDIO</h4>
+        <p>Optimización de la capacidad aeróbica con equipamiento profesional.</p>
+        <a href="#">Comenzar</a>
+      </div>
+      <div class="item">
+        <h4>ESTUDIO DE CICLISMO</h4>
+        <p>Sesiones grupales e individuales con bicicletas inteligentes.</p>
+        <a href="#">Comenzar</a>
+      </div>
+      <div class="item">
+        <h4>ZONA DE FUERZA</h4>
+        <p>Trabajo de fuerza y prevención de lesiones con técnica supervisada.</p>
+        <a href="#">Comenzar</a>
+      </div>
+      <div class="item">
+        <h4>SALA DE CLASES</h4>
+        <p>Entrenamiento funcional, movilidad, y clases técnicas grupales.</p>
+        <a href="#">Comenzar</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRESENTACIÓN DEL CENTRO -->
+  <section class="promo-gym">
+    <div class="imagen-gym"></div>
+    <div class="texto-gym">
+      <h3>ELISEO CENTRO DE ENTRENAMIENTO</h3>
+      <p>Nuestro propósito es ayudarte a superar tus límites con entrenadores capacitados, infraestructura moderna y una metodología clara de mejora continua.</p>
+      <a href="#">Saber más</a>
+    </div>
+  </section>
+
+  <!-- DESTACADO DE CLASES -->
+  <section class="clases">
+    <h3>CLASES DESTACADAS</h3>
+    <p>Explorá nuestras sesiones más elegidas para atletas en formación y alto rendimiento.</p>
+    <a href="#">Ver clases</a>
+  </section>
+
+  <!-- MAPA O RUTA DE ACTIVIDADES -->
+  <section class="ruta-maraton">
+    <div class="texto">
+      <h3>RUTA DE ENTRENAMIENTO</h3>
+      <p>Programas progresivos según niveles. Recorrido técnico adaptado a tus metas y calendario competitivo.</p>
+    </div>
+    <div class="mapa">
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-info">
+      <p><strong>ELISEO ENTRENAMIENTO</strong><br>Calle Ejemplo 123<br>Ciudad, Provincia</p>
+      <p><strong>HORARIOS</strong><br>Martes a Sábado: 6:00 a 22:00 hs<br>Domingos: 9:00 a 17:00 hs</p>
+      <p><strong>SEGUINOS</strong><br>Instagram | Facebook | LinkedIn</p>
+    </div>
+  </footer>
+
+</body>
+</html>
