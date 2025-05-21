@@ -2,162 +2,91 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Eliseo | Tecnificación Deportiva</title>
-  <link rel="stylesheet" href="./css/estilos.css" />
-  <script src="./JS/turnos.js" defer></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gimnasio Eliseo</title>
+  <link rel="stylesheet" href="css/estilos.css" />
 </head>
-
 <body>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="contenido-hero">
-      <h1>ELISEO <span>ALTO RENDIMIENTO</span></h1>
-      <p>Entrenamiento físico y técnico orientado al desarrollo deportivo</p>
-      <a href="#" class="boton">Conocé más</a>
+  <!-- 🟡 HERO PRINCIPAL -->
+  <header class="hero">
+    <div class="hero-contenido">
+      <h1>Gimnasio Eliseo</h1>
+      <p>Entrená por una causa. Superate todos los días.</p>
+      <a href="#turnos" class="btn-hero">Reservá tu turno</a>
     </div>
-  </section>
+  </header>
 
-  <!-- OBJETIVO -->
-  <section class="causa">
-    <h2>ENTRENÁ CON PROPÓSITO</h2>
-    <p>Somos un espacio de tecnificación deportiva pensado para atletas de todos los niveles. 
-    Te acompañamos a alcanzar tu máximo rendimiento físico, técnico y mental.</p>
-  </section>
+  <main class="contenedor">
 
-  <!-- DETALLES DEL PROGRAMA -->
-  <section class="detalles">
-    <div class="card">
-      <h3>INSCRIPCIÓN</h3>
-      <p>Las inscripciones abren el 1 de septiembre. <br><a href="#">www.eliseoentrena.com/inscripcion</a></p>
-    </div>
-    <div class="card">
-      <h3>EQUIPAMIENTO OFICIAL</h3>
-      <p>Incluye remera de entrenamiento, kit de bienvenida y acceso a herramientas digitales de seguimiento.</p>
-    </div>
-  </section>
+    <!-- 🟡 SECCIÓN DE INTRODUCCIÓN -->
+    <section class="causa">
+      <h2>Entrená con propósito</h2>
+      <p>Ya sea que estés empezando o seas un atleta, este espacio es para vos.</p>
+    </section>
 
-  <!-- ACTIVIDADES PREPARATORIAS -->
-  <section class="pre-maraton">
-    <div class="img-maraton"></div>
-    <div class="texto-maraton">
-      <h3>ENTRENAMIENTOS GUIADOS</h3>
-      <p>Sesiones en grupos reducidos para mejorar técnica y potencia.</p>
-      <h3>SEMINARIOS</h3>
-      <p>Charlas sobre nutrición, psicología deportiva y planificación.</p>
-      <h3>ENCUENTROS SOCIALES</h3>
-      <p>Conectá con otros atletas y compartí experiencias en comunidad.</p>
-    </div>
-  </section>
-
-<!-- DESCRIPCIÓN DEL SIMULADOR -->
-<section class="descripcion-simulador">
-  <p><strong>Simulador de Turnos:</strong> Esta página contiene un sistema de turnos funcional desarrollado con JavaScript puro. El usuario puede ver turnos disponibles, reservar turnos e interactuar con la consola a través de mensajes, condicionales, ciclos y funciones con entrada, proceso y salida. Toda la lógica se encuentra implementada en el archivo <code>js/turnos.js</code>.</p>
-
-  <!-- BOTÓN PARA INICIAR EL SIMULADOR -->
-  <button onclick="iniciarSimulador()">Iniciar Simulador de Turnos</button>
-</section>
-
-
-<!-- TURNOS DISPONIBLES -->
-<section class="turnos-disponibles">
-  <h2>Disponibilidad de Turnos</h2>
-  
-  <div class="grid-turnos">
-    <div class="turno disponible">08:00</div>
-    <div class="turno reservado">09:00</div>
-    <div class="turno disponible">10:00</div>
-    <div class="turno disponible">11:00</div>
-    <div class="turno reservado">12:00</div>
-    <div class="turno disponible">13:00</div>
-  </div>
-
-  <a href="#formulario-turno" class="boton-turno">Solicitar Turno</a>
-</section>
-
-<!-- FORMULARIO DE TURNO -->
-<section id="formulario-turno" class="form-turno">
-  <h2>Reservá tu Turno</h2>
-  <form action="/reserva" method="post">
-    <input type="text" name="nombre" placeholder="Tu nombre completo" required />
-    <input type="date" name="fecha" required />
-    <input type="time" name="hora" required />
-    <select name="actividad" required>
-      <option value="">Seleccioná una actividad</option>
-      <option value="entrenamiento">Entrenamiento</option>
-      <option value="voley">Técnica de Vóley</option>
-      <option value="funcional">Funcional</option>
-    </select>
-    <button type="submit">Confirmar Turno</button>
-  </form>
-</section>
-
-  
-
-  <!-- INSTALACIONES -->
-  <section class="amenities">
-    <h2>NUESTRAS ÁREAS DE ENTRENAMIENTO</h2>
-    <div class="amenities-grid">
-      <div class="item">
-        <h4>ZONA CARDIO</h4>
-        <p>Optimización de la capacidad aeróbica con equipamiento profesional.</p>
-        <a href="#">Comenzar</a>
+    <!-- 🟡 SECCIÓN DE AMENITIES -->
+    <section class="amenities">
+      <h2>Nuestras Zonas</h2>
+      <div class="grid-amenities">
+        <div class="item">
+          <h3>Cardio</h3>
+          <p>Cintas, bicicletas, escaladoras y más.</p>
+        </div>
+        <div class="item">
+          <h3>Pesas</h3>
+          <p>Zona libre y máquinas guiadas para todos los niveles.</p>
+        </div>
+        <div class="item">
+          <h3>Clases</h3>
+          <p>Funcional, yoga, HIIT, spinning y más.</p>
+        </div>
       </div>
-      <div class="item">
-        <h4>ESTUDIO DE CICLISMO</h4>
-        <p>Sesiones grupales e individuales con bicicletas inteligentes.</p>
-        <a href="#">Comenzar</a>
+    </section>
+
+    <!-- 🟡 SECCIÓN DE TURNOS -->
+    <section id="turnos" class="turnos">
+      <h2>Reservá tus turnos</h2>
+
+      <form id="formTurno">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" required />
+
+        <label for="frecuencia">¿Cuántos días por semana vas a venir?</label>
+        <select id="frecuencia" required>
+          <option value="">Seleccionar</option>
+          <option value="2">2 veces</option>
+          <option value="3">3 veces</option>
+          <option value="0">Borrar selección de días</option>
+        </select>
+
+        <!-- Acá se agregan dinámicamente los días + horarios -->
+        <div id="turnos-dinamicos"></div>
+
+        <button type="submit">Reservar</button>
+      </form>
+    </section>
+
+    <!-- 🟡 SECCIÓN DE GRILLA DE TURNOS -->
+    <section class="grilla-turnos">
+      <h2>Turnos Ocupados</h2>
+
+      <!-- Acá va la tabla generada por JavaScript -->
+      <div id="tabla-turnos"></div>
+
+      <!-- BOTONES DE ADMINISTRACIÓN -->
+      <div class="botones-admin">
+        <button id="reiniciarTurnero">🧹 Reiniciar turnero (eliminar todos)</button>
+        <button id="borrarMisTurnos">🧺 Eliminar mis turnos</button>
       </div>
-      <div class="item">
-        <h4>ZONA DE FUERZA</h4>
-        <p>Trabajo de fuerza y prevención de lesiones con técnica supervisada.</p>
-        <a href="#">Comenzar</a>
-      </div>
-      <div class="item">
-        <h4>SALA DE CLASES</h4>
-        <p>Entrenamiento funcional, movilidad, y clases técnicas grupales.</p>
-        <a href="#">Comenzar</a>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- PRESENTACIÓN DEL CENTRO -->
-  <section class="promo-gym">
-    <div class="imagen-gym"></div>
-    <div class="texto-gym">
-      <h3>ELISEO CENTRO DE ENTRENAMIENTO</h3>
-      <p>Nuestro propósito es ayudarte a superar tus límites con entrenadores capacitados, infraestructura moderna y una metodología clara de mejora continua.</p>
-      <a href="#">Saber más</a>
-    </div>
-  </section>
+  </main>
 
-  <!-- DESTACADO DE CLASES -->
-  <section class="clases">
-    <h3>CLASES DESTACADAS</h3>
-    <p>Explorá nuestras sesiones más elegidas para atletas en formación y alto rendimiento.</p>
-    <a href="#">Ver clases</a>
-  </section>
-
-  <!-- MAPA O RUTA DE ACTIVIDADES -->
-  <section class="ruta-maraton">
-    <div class="texto">
-      <h3>RUTA DE ENTRENAMIENTO</h3>
-      <p>Programas progresivos según niveles. Recorrido técnico adaptado a tus metas y calendario competitivo.</p>
-    </div>
-    <div class="mapa">
-
-    </div>
-  </section>
-
-  <!-- FOOTER -->
   <footer class="footer">
-    <div class="footer-info">
-      <p><strong>ELISEO ENTRENAMIENTO</strong><br>Calle Ejemplo 123<br>Ciudad, Provincia</p>
-      <p><strong>HORARIOS</strong><br>Martes a Sábado: 6:00 a 22:00 hs<br>Domingos: 9:00 a 17:00 hs</p>
-      <p><strong>SEGUINOS</strong><br>Instagram | Facebook | LinkedIn</p>
-    </div>
+    <p>© 2025 Gimnasio Eliseo. Todos los derechos reservados.</p>
   </footer>
 
+  <script src="JS/turnos.js"></script>
 </body>
 </html>

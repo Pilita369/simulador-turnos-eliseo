@@ -1,85 +1,133 @@
-// turnos.js
-// -------------------------------
-// Simulador de turnos para Eliseo | Entrega 1
+const form = document.getElementById("formTurno");
+const frecuenciaInput = document.getElementById("frecuencia");
+const dinamico = document.getElementById("turnos-dinamicos");
+const tablaTurnos = document.getElementById("tabla-turnos");
 
-// 1. Variables y arrays
-const turnosDisponibles = ["08:00", "10:00", "11:00", "13:00"];
-const turnosReservados = ["09:00", "12:00"];
-const listaDeTurnos = []; // turnos reservados en esta sesión
+let turnos = JSON.parse(localStorage.getItem("turnos")) || [];
 
-// 2. Función para mostrar turnos disponibles
-function mostrarTurnos() {
-  console.log("✅ TURNOS DISPONIBLES:");
-  turnosDisponibles.forEach((hora, i) => {
-    console.log(`${i + 1}. ${hora}`);
-  });
-}
+const dias = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes"];
+const horas = ["07:00", "08:00", "09:00", "10:00"];
 
-// 3. Función para reservar turno
-function reservarTurno() {
-  mostrarTurnos();
-  let seleccion = prompt("🕒 Ingresá la hora exacta que querés reservar:");
-  if (turnosDisponibles.includes(seleccion)) {
-    const nombre = prompt("👤 Ingresá tu nombre:");
-    const actividad = prompt("🏐 Actividad (entrenamiento / voley / funcional):");
+function generarCampos(frecuencia) {
+  dinamico.innerHTML = ""; // Limpiamos primero
 
-    const confirmar = confirm(`¿Confirmás reservar el turno ${seleccion} para ${actividad}?`);
-    if (confirmar) {
-      turnosDisponibles.splice(turnosDisponibles.indexOf(seleccion), 1);
-      turnosReservados.push(seleccion);
-      listaDeTurnos.push({ nombre, hora: seleccion, actividad });
+  for (let i = 1; i <= frecuencia; i++) {
+    const div = document.createElement("div");
+    div.classList.add("grupo-turno");
 
-      alert(`✅ Turno confirmado para ${nombre} a las ${seleccion} (${actividad}).`);
-    } else {
-      alert("❌ Turno no reservado.");
-    }
-  } else {
-    alert("⛔ La hora ingresada no está disponible.");
-  }
-}
-
-// 4. Función para mostrar todos los turnos confirmados
-function mostrarReservas() {
-  console.log("📋 LISTA DE TURNOS CONFIRMADOS:");
-  if (listaDeTurnos.length === 0) {
-    console.log("No hay turnos aún.");
-  } else {
-    listaDeTurnos.forEach((turno, i) => {
-      console.log(`${i + 1}. ${turno.nombre} - ${turno.hora} - ${turno.actividad}`);
+    // Día
+    const labelDia = document.createElement("label");
+    labelDia.textContent = `Día ${i}:`;
+    const selectDia = document.createElement("select");
+    selectDia.name = `dia${i}`;
+    dias.forEach(d => {
+      const opt = document.createElement("option");
+      opt.value = d;
+      opt.textContent = d;
+      selectDia.appendChild(opt);
     });
+
+    // Hora
+    const labelHora = document.createElement("label");
+    labelHora.textContent = `Hora ${i}:`;
+    const selectHora = document.createElement("select");
+    selectHora.name = `hora${i}`;
+    horas.forEach(h => {
+      const opt = document.createElement("option");
+      opt.value = h;
+      opt.textContent = `${h} - ${parseInt(h) + 1}:00`;
+      selectHora.appendChild(opt);
+    });
+
+    // Agregar al form
+    div.appendChild(labelDia);
+    div.appendChild(selectDia);
+    div.appendChild(labelHora);
+    div.appendChild(selectHora);
+    dinamico.appendChild(div);
   }
 }
 
-// 5. Función principal (menú)
-function iniciarSimulador() {
-  alert("Bienvenido al Simulador de Turnos de Eliseo.");
+frecuenciaInput.addEventListener("change", () => {
+  const cantidad = parseInt(frecuenciaInput.value);
+  if (cantidad === 2 || cantidad === 3) {
+    generarCampos(cantidad);
+  }
+});
 
-  let continuar = true;
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const nombre = document.getElementById("nombre").value.trim();
+  const frecuencia = parseInt(frecuenciaInput.value);
 
-  while (continuar) {
-    const opcion = prompt(
-      "¿Qué acción querés realizar?\n1. Ver turnos disponibles\n2. Reservar un turno\n3. Ver reservas\n4. Salir"
-    );
+  if (!nombre || !frecuencia) return alert("Completa todos los campos");
 
-    switch (opcion) {
-      case "1":
-        mostrarTurnos();
-        break;
-      case "2":
-        reservarTurno();
-        break;
-      case "3":
-        mostrarReservas();
-        break;
-      case "4":
-        continuar = false;
-        alert("Gracias por usar el simulador. ¡Hasta pronto!");
-        break;
-      default:
-        alert("Opción no válida.");
+  let nuevosTurnos = [];
+
+  for (let i = 1; i <= frecuencia; i++) {
+    const dia = form[`dia${i}`].value;
+    const hora = form[`hora${i}`].value;
+
+    const turnoRepetido = turnos.filter(t => t.dia === dia && t.hora === hora);
+
+    if (turnoRepetido.length >= 2) {
+      alert(`El turno del ${dia} a las ${hora} ya está completo.`);
+      return;
     }
+
+    nuevosTurnos.push({ nombre, dia, hora });
   }
+
+  // Guardar y actualizar
+  turnos = [...turnos, ...nuevosTurnos];
+  localStorage.setItem("turnos", JSON.stringify(turnos));
+  form.reset();
+  dinamico.innerHTML = "";
+  generarTabla();
+});
+
+// Genera la tabla visual de turnos ocupados
+function generarTabla() {
+  const tabla = document.createElement("table");
+  const thead = document.createElement("thead");
+  const tbody = document.createElement("tbody");
+
+  // Encabezado
+  const header = document.createElement("tr");
+  header.innerHTML = "<th>Hora / Día</th>";
+  dias.forEach(d => {
+    const th = document.createElement("th");
+    th.textContent = d;
+    header.appendChild(th);
+  });
+  thead.appendChild(header);
+
+  // Cuerpo
+  horas.forEach(hora => {
+    const fila = document.createElement("tr");
+    const thHora = document.createElement("th");
+    thHora.textContent = hora;
+    fila.appendChild(thHora);
+
+    dias.forEach(dia => {
+      const td = document.createElement("td");
+
+      const ocupados = turnos.filter(t => t.dia === dia && t.hora === hora);
+      td.textContent = ocupados.length > 0 ? `${ocupados.length} 🧍` : "";
+      td.className = ocupados.length >= 2 ? "ocupado" : "disponible";
+
+      fila.appendChild(td);
+    });
+
+    tbody.appendChild(fila);
+  });
+
+  tabla.appendChild(thead);
+  tabla.appendChild(tbody);
+
+  tablaTurnos.innerHTML = ""; // Limpiar tabla anterior
+  tablaTurnos.appendChild(tabla);
 }
 
-// NO se ejecuta automáticamente para evitar bloqueos ⚠️
-
+// Mostrar tabla al cargar
+generarTabla();
