@@ -2,91 +2,48 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Gimnasio Eliseo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Turnos Gimnasio Eliseo</title>
   <link rel="stylesheet" href="css/estilos.css" />
 </head>
 <body>
-
-  <!-- 🟡 HERO PRINCIPAL -->
   <header class="hero">
-    <div class="hero-contenido">
-      <h1>Gimnasio Eliseo</h1>
-      <p>Entrená por una causa. Superate todos los días.</p>
-      <a href="#turnos" class="btn-hero">Reservá tu turno</a>
-    </div>
+    <h1>Gimnasio Eliseo</h1>
+    <p>Organizá tus turnos semanales</p>
   </header>
 
   <main class="contenedor">
-
-    <!-- 🟡 SECCIÓN DE INTRODUCCIÓN -->
-    <section class="causa">
-      <h2>Entrená con propósito</h2>
-      <p>Ya sea que estés empezando o seas un atleta, este espacio es para vos.</p>
-    </section>
-
-    <!-- 🟡 SECCIÓN DE AMENITIES -->
-    <section class="amenities">
-      <h2>Nuestras Zonas</h2>
-      <div class="grid-amenities">
-        <div class="item">
-          <h3>Cardio</h3>
-          <p>Cintas, bicicletas, escaladoras y más.</p>
-        </div>
-        <div class="item">
-          <h3>Pesas</h3>
-          <p>Zona libre y máquinas guiadas para todos los niveles.</p>
-        </div>
-        <div class="item">
-          <h3>Clases</h3>
-          <p>Funcional, yoga, HIIT, spinning y más.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- 🟡 SECCIÓN DE TURNOS -->
-    <section id="turnos" class="turnos">
+    <section class="formulario">
       <h2>Reservá tus turnos</h2>
-
       <form id="formTurno">
-        <label for="nombre">Nombre:</label>
+        <label for="nombre">Tu nombre:</label>
         <input type="text" id="nombre" required />
 
-        <label for="frecuencia">¿Cuántos días por semana vas a venir?</label>
+        <label for="frecuencia">Días por semana:</label>
         <select id="frecuencia" required>
           <option value="">Seleccionar</option>
           <option value="2">2 veces</option>
           <option value="3">3 veces</option>
-          <option value="0">Borrar selección de días</option>
         </select>
 
-        <!-- Acá se agregan dinámicamente los días + horarios -->
         <div id="turnos-dinamicos"></div>
 
         <button type="submit">Reservar</button>
       </form>
     </section>
 
-    <!-- 🟡 SECCIÓN DE GRILLA DE TURNOS -->
-    <section class="grilla-turnos">
-      <h2>Turnos Ocupados</h2>
-
-      <!-- Acá va la tabla generada por JavaScript -->
+    <section class="tabla-turnos">
+      <h2>Turnos ocupados</h2>
       <div id="tabla-turnos"></div>
-
-      <!-- BOTONES DE ADMINISTRACIÓN -->
-      <div class="botones-admin">
-        <button id="reiniciarTurnero">🧹 Reiniciar turnero (eliminar todos)</button>
-        <button id="borrarMisTurnos">🧺 Eliminar mis turnos</button>
-      </div>
     </section>
 
-  </main>
+    <button id="reiniciarTurnos" style="margin-top: 1rem; background-color: crimson; color: white; padding: 0.5rem; border: none; border-radius: 5px; cursor: pointer;">
+  Reiniciar turnero
+</button>
 
-  <footer class="footer">
-    <p>© 2025 Gimnasio Eliseo. Todos los derechos reservados.</p>
-  </footer>
+  </main>
 
   <script src="JS/turnos.js"></script>
 </body>
 </html>
+
