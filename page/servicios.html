@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Turnos y Valores - Gimnasio Eliseo</title>
+  <link rel="stylesheet" href="../css/estilos.css">
+  <link rel="stylesheet" href="../css/servicios.css">
+</head>
+<body>
+  <header class="hero">
+    <nav class="menu">
+  <ul>
+    <li><a href="../index.html">Inicio</a></li>
+    <li><a href="#">Servicios</a></li>
+    <li><a href="../page/blog.html">Blog</a></li>
+    
+  </ul>
+</nav>
+
+    <h1>Conocé nuestros valores</h1>
+  </header>
+
+  <!-- Sección de valores en cards -->
+  <section class="valores">
+    <div class="card">
+      <h3>2 días</h3>
+      <p>$70.000 por mes</p>
+    </div>
+    <div class="card">
+      <h3>3 días</h3>
+      <p>$100.000</p>
+    </div>
+    <div class="card">
+      <h3>online</h3>
+      <p>$50.000</p>
+    </div>
+  </section>
+
+  <!-- Turnero dinámico con JS -->
+ 
+
+
+
+    <section class="formulario">
+      <h2>Reservá tus turnos</h2>
+      <form id="formTurno">
+        <label for="nombre">Tu nombre:</label>
+        <input type="text" id="nombre" required />
+
+        <label for="frecuencia">Días por semana:</label>
+        <select id="frecuencia" required>
+          <option value="">Seleccionar</option>
+          <option value="2">2 veces</option>
+          <option value="3">3 veces</option>
+        </select>
+
+        <div id="turnos-dinamicos"></div>
+
+        <button type="submit">Reservar</button>
+      </form>
+    </section>
+
+    <section class="tabla-turnos">
+      <h2>Turnos ocupados</h2>
+      <div id="tabla-turnos"></div>
+    </section>
+
+    <button id="reiniciarTurnos" style="margin-top: 1rem; background-color: crimson; color: white; padding: 0.5rem; border: none; border-radius: 5px; cursor: pointer;">
+  Reiniciar turnero
+</button>
+
+  <script src="../JS/turnos.js"></script>
+</body>
+</html>

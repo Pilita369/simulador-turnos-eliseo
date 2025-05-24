@@ -153,3 +153,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
   generarTabla();
 });
+
+// Control simple para avanzar entre las imágenes del carrusel
+
+document.addEventListener("DOMContentLoaded", () => {
+  let index = 0;
+  const slides = document.querySelectorAll(".slide");
+
+  function showSlide(nuevaIndex) {
+    slides.forEach(slide => slide.classList.remove("active"));
+    slides[nuevaIndex].classList.add("active");
+  }
+
+  function avanzar() {
+    index = (index + 1) % slides.length;
+    showSlide(index);
+  }
+
+  function retroceder() {
+    index = (index - 1 + slides.length) % slides.length;
+    showSlide(index);
+  }
+
+  // Botones para avanzar y retroceder
+  const btnPrev = document.createElement("button");
+  btnPrev.textContent = "◀";
+  btnPrev.classList.add("prev");
+  btnPrev.onclick = retroceder;
+  document.querySelector(".carrusel").appendChild(btnPrev);
+
+  const btnNext = document.createElement("button");
+  btnNext.textContent = "▶";
+  btnNext.classList.add("next");
+  btnNext.onclick = avanzar;
+  document.querySelector(".carrusel").appendChild(btnNext);
+
+  // Mostrar la imagen inicial
+  showSlide(index);
+
+  // Avance automático cada 5 segundos
+  setInterval(avanzar, 5000);
+});

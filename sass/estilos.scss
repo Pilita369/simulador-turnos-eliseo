@@ -12,6 +12,227 @@ body {
   line-height: 1.5;
 }
 
+
+
+/* Menú de navegación */
+nav.menu {
+  background-color: #ffffff;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav.menu ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav.menu li {
+  display: inline;
+}
+
+nav.menu a {
+  text-decoration: none;
+  color: #008080;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+nav.menu a:hover {
+  color: salmon;
+}
+
+
+/* Carrusel base */
+.carrusel {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 2rem 0;
+}
+
+.slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  perspective: 1200px;
+  height: 300px;
+}
+
+.slide {
+  position: absolute;
+  opacity: 0.4;
+  transform: scale(0.7);
+  transition: all 0.6s ease-in-out;
+  z-index: 1;
+  filter: blur(3px);
+}
+
+.slide img {
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.slide.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 5;
+  filter: none;
+}
+
+/* Posiciones relativas para simular efecto cartas */
+.slide:nth-child(1) { left: 10%; }
+.slide:nth-child(2) { left: 35%; }
+.slide:nth-child(3) { left: 60%; }
+
+/* Botones del carrusel */
+.carrusel button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+}
+
+.carrusel button.prev {
+  left: 10px;
+}
+
+.carrusel button.next {
+  right: 10px;
+}
+
+
+/* Descripción con dos columnas usando grid */
+.descripcion {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 0 1rem;
+}
+
+.descripcion h2 {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #008080;
+  margin-bottom: 1rem;
+}
+
+.descripcion p {
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* Misión y visión con efecto tarjeta 3D */
+.mision-vision {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem auto;
+  flex-wrap: wrap;
+  max-width: 1000px;
+}
+
+.card-mv {
+  background: rgb(68, 64, 64);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  width: 45%;
+  min-width: 280px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-mv:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+}
+
+.card-mv h3 {
+  color: #12b1b1;
+  margin-bottom: 0.5rem;
+}
+
+.card-mv p {
+  line-height: 1.6;
+}
+
+
+
+
+
+/*info*/
+
+/*info turnos*/
+
+.info-turnos {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 2rem;
+ 
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  line-height: 1.7;
+  color: #f5f1f1;
+}
+
+.info-turnos h2 {
+  text-align: center;
+  color: #008080;
+  margin-bottom: 1rem;
+}
+
+.info-turnos p {
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+.columnas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  align-items: start;
+}
+
+.columnas p {
+  
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: justify;
+  box-shadow: 0 2px 8px rgba(240, 237, 237, 0.05);
+  line-height: 1.6;
+}
+
+.imagen-entreno img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(221, 218, 218, 0.2);
+  display: block;
+  margin: auto;
+}
+
+
+
+
+
 /* === HERO === */
 .hero {
   text-align: center;
@@ -130,3 +351,6 @@ button:hover {
 #tabla-turnos td button:hover {
   color: #ffb3a7;
 }
+
+
+

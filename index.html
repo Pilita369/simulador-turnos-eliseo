@@ -1,49 +1,99 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Turnos Gimnasio Eliseo</title>
-  <link rel="stylesheet" href="css/estilos.css" />
+  <title>Gimnasio Eliseo</title>
+  <link rel="stylesheet" href="./css/estilos.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <header class="hero">
+
+    <nav class="menu">
+  <ul>
+    <li><a href="#">Inicio</a></li>
+    <li><a href="./page/servicios.html">Serviccios</a></li>
+    <li><a href="./page/blog.html">Blog</a></li>
+  </ul>
+</nav>
+
+
     <h1>Gimnasio Eliseo</h1>
-    <p>Organizá tus turnos semanales</p>
+    <p>Tu espacio para entrenar con energía y constancia</p>
   </header>
 
-  <main class="contenedor">
-    <section class="formulario">
-      <h2>Reservá tus turnos</h2>
-      <form id="formTurno">
-        <label for="nombre">Tu nombre:</label>
-        <input type="text" id="nombre" required />
+  <!-- Carrusel de imágenes -->
+  <section class="carrusel">
+    <div class="slider">
+      <div class="slide active"><img src="./medios/1.png" alt="Imagen 1"></div>
+      <div class="slide"><img src="./medios/2.png" alt="Imagen 2"></div>
+      <div class="slide"><img src="./medios/3.png" alt="Imagen 3"></div>
+      <div class="slide"><img src="./medios/4.png" alt="Imagen 3"></div>
+      <div class="slide"><img src="./medios/5.png" alt="Imagen 3"></div>
+      <div class="slide"><img src="./medios/6.png" alt="Imagen 3"></div>
+      <div class="slide"><img src="./medios/7.png" alt="Imagen 3"></div>
 
-        <label for="frecuencia">Días por semana:</label>
-        <select id="frecuencia" required>
-          <option value="">Seleccionar</option>
-          <option value="2">2 veces</option>
-          <option value="3">3 veces</option>
-        </select>
+    </div>
+  </section>
 
-        <div id="turnos-dinamicos"></div>
 
-        <button type="submit">Reservar</button>
-      </form>
-    </section>
+<section class="descripcion">
+  <h2>Nuestra propuesta</h2>
+  <p>En Eliseo trabajamos con un enfoque de <strong>tecnificación deportiva</strong>, adaptado a las necesidades de cada persona. Nos especializamos en ayudar a deportistas de distintas disciplinas a entrenar de forma eficiente, segura y personalizada.</p>
+  <p>Los turnos son personalizados, con un máximo de <strong>2 personas por hora</strong>, permitiendo un seguimiento cercano y adaptaciones precisas.</p>
+  <p>Antes de comenzar el entrenamiento, realizamos un test funcional (FMS) para detectar debilidades o compensaciones. Esto nos permite diseñar un plan a medida, que previene lesiones y potencia el rendimiento.</p>
+</section>
 
-    <section class="tabla-turnos">
-      <h2>Turnos ocupados</h2>
-      <div id="tabla-turnos"></div>
-    </section>
+<section class="mision-vision">
+  <div class="card-mv">
+    <h3>Misión</h3>
+    <p>Transformar el entrenamiento deportivo a través de la personalización.
+Buscamos brindar un espacio técnico y seguro donde cada persona pueda mejorar su rendimiento físico, prevenir lesiones y alcanzar su mejor versión mediante una atención cercana, profesional y consciente.</p>
+  </div>
+  <div class="card-mv">
+    <h3>Visión</h3>
+    <p>Ser referentes en tecnificación deportiva personalizada.
+Nuestra visión es construir un modelo de entrenamiento que respete las diferencias individuales, y que fomente una cultura del movimiento eficiente, duradero y saludable, ayudando a deportistas y personas activas a entrenar mejor y con propósito.
 
-    <button id="reiniciarTurnos" style="margin-top: 1rem; background-color: crimson; color: white; padding: 0.5rem; border: none; border-radius: 5px; cursor: pointer;">
-  Reiniciar turnero
-</button>
+</p>
+  </div>
+</section>
+
+
+  <!-- Info de turnos -->
+
+
+<section class="info-turnos">
+  <h2>¿Cómo funcionan los turnos?</h2>
+
+  <div class="columnas">
+    <p>Los turnos de entrenamiento se organizan <strong>de lunes a viernes</strong>, en bloques de <strong>una hora</strong>, desde las <strong>7:00 hasta las 11:00 am</strong>. Cada turno es <strong>personalizado</strong>, con un máximo de 2 personas por bloque.</p>
+
+    <p>También ofrecemos <strong>clases online</strong> para quienes entrenan desde casa. En todos los casos realizamos una <strong>evaluación funcional (FMS)</strong> antes de comenzar.</p>
+
+    <p>Realizamos un <strong>seguimiento semanal</strong> para ajustar tu entrenamiento a tus avances, objetivos y necesidades. Siempre vas a estar acompañado.</p>
+
+    <!-- Imagen de la chica entrenando en casa -->
+    <div class="imagen-entreno">
+      <img src="./medios/chica-entrenando-en-casa.png" alt="Chica entrenando en casa">
+    </div>
+  </div>
+</section>
+
+
+  
 
   </main>
+<script src="./JS/carrusel-control.js"></script>
 
-  <script src="JS/turnos.js"></script>
+  <script src="./JS/turnos.js"></script>
+<footer>
+    <p>&copy; 2025 Gimnasio Eliseo. Todos los derechos reservados.</p>
+  </footer>
 </body>
 </html>
 
