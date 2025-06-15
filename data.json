@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "nombre": "Entrenamiento de Fuerza",
+    "horario": "Lunes y Mi\u00e9rcoles 7:00 a 8:00"
+  },
+  {
+    "id": 2,
+    "nombre": "T\u00e9cnica Deportiva",
+    "horario": "Martes y Jueves 9:00 a 10:00"
+  }
+]
